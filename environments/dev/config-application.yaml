@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: blogapp-dev-config
+  namespace: argocd
+spec:
+  project: blogapp-dev
+  source:
+    repoURL: https://github.com/Vinh5905/blog-gitops.git
+    targetRevision: main
+    path: environments/dev
+    plugin:
+      name: blogapp-helm-sops-v1
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: blogapp-dev

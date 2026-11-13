@@ -1,0 +1,3 @@
+creation_rules:
+  - path_regex: '^environments/dev/.*\.enc\.yaml$'
+    age: age1gld2rz09vwj8svf2j5sss6gms6dv2mk6efzjqkz7svv0weaprv5q5h3p9f
