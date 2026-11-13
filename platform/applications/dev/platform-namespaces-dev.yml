@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: platform-namespaces-dev
+  namespace: argocd
+spec:
+  project: platform-dev
+  source:
+    repoURL: https://github.com/Vinh5905/blog-gitops.git
+    targetRevision: main
+    path: platform/manifests/dev/namespaces
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: blogapp-dev
