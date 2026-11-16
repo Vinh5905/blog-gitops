@@ -20,6 +20,9 @@ spec:
       kind: ValidatingAdmissionPolicy
     - group: admissionregistration.k8s.io
       kind: ValidatingAdmissionPolicyBinding
+    - group: storage.k8s.io
+      kind: StorageClass
+      name: gp3
   namespaceResourceWhitelist:
     - group: ''
       kind: ServiceAccount

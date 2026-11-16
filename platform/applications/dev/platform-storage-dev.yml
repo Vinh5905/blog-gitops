@@ -40,6 +40,15 @@ spec:
         node:
           enableWindows: false
           metadataSources: kubernetes
+
+        storageClasses:
+          - name: gp3
+            volumeBindingMode: WaitForFirstConsumer
+            reclaimPolicy: Delete
+            allowVolumeExpansion: true
+            parameters:
+              type: gp3
+              encrypted: "true"
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
