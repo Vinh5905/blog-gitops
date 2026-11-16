@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: platform-metrics-dev
+  namespace: argocd
+spec:
+  project: metrics-dev
+  source:
+    repoURL: https://kubernetes-sigs.github.io/metrics-server/
+    chart: metrics-server
+    targetRevision: '3.14.0'
+    helm:
+      releaseName: metrics-server
+      valuesObject:
+        args:
+          - --kubelet-certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
